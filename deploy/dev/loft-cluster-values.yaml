@@ -1,0 +1,22 @@
+# vBilling on the loft-cluster control plane cluster (vCluster Platform
+# 3e2vnbp.loft.host, GKE us-central1-a). Shared by the stable release
+# (vbilling, upstream image) and the dev release (vbilling-dev, fork image);
+# scripts/dev.sh sets the image for dev builds. No credentials here.
+adapters: [noop]
+region: us-central1
+clusterName: loft-cluster
+tenantSource: cluster
+platform:
+  cluster: loft-cluster
+tenantAPI:
+  enabled: true
+  adminFallback: true # foocluster has private nodes; reads its vc-<name> admin kubeconfig
+  privateNodeBilling: node
+prometheus:
+  url: http://prometheus-server.vcluster-platform.svc:80 # the Platform's Prometheus
+  gpuUtilQuery: none # no DCGM yet
+persistence:
+  enabled: true
+  size: 5Gi
+enforcement:
+  mode: observe

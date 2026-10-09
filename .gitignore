@@ -12,3 +12,4 @@ deploy/lago/lago_rsa*
 deploy/lago/.env
 deploy/lago/entrypoint.sh
 .claude/
+.dev/

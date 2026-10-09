@@ -1,5 +1,5 @@
 BINARY := vbilling
-IMAGE  := ghcr.io/vclusterlabs-experiments/vbilling
+IMAGE  ?= ghcr.io/vclusterlabs-experiments/vbilling
 TAG    ?= latest
 
 .PHONY: build run test lint e2e docker-build docker-push clean tidy
